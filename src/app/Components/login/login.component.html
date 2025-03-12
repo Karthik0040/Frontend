@@ -1,0 +1,31 @@
+<section class="login-section">
+  <div class="login-container">
+    <h2>Login</h2>
+    <p>Please enter your username and password!</p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required
+          class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required
+          class="form-control" />
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary">
+        Login
+      </button>
+    </form>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <p>
+      Don't have an account?
+      <a routerLink="/register"><u>Sign Up</u></a>
+    </p>
+  </div>
+</section>

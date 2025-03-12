@@ -1,0 +1,36 @@
+/* Custom blue navbar background */
+.custom-navbar {
+  background-color: #003666 !important;
+}
+
+/* Adjust the brand (logo & text) to the left */
+.custom-navbar .navbar-brand {
+  margin-left: 20px; /* Increase if you want it even further to the left */
+}
+
+/* Adjust the navigation links to be more to the right */
+.custom-navbar .navbar-nav {
+  margin-right: 20px;  /* Adjust this value for extra right spacing */
+}
+
+/* Ensure brand and nav link text is white */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+}
+
+/* Hover effect for links */
+.custom-navbar .nav-link:hover {
+  color: #cce0ff !important;
+}
+
+/* Navbar Toggler customization */
+.custom-navbar .navbar-toggler {
+  border-color: #ffffff;
+}
+.custom-navbar .navbar-toggler-icon {
+  background-image: url('../../assets/img2.jpg'); /* Background image */
+}
+.profile{
+  cursor: pointer;
+}

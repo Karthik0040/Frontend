@@ -1,0 +1,106 @@
+/* Container adjustments */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Search form styling */
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.form-control {
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Card styling */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 1.5rem;
+  background-color: #ffffff;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #555;
+}
+
+/* Button for Cancel Appointment */
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}
+
+/* Disabled Completed Button Styling */
+.btn-secondary[disabled] {
+  background-color: #6c757d;
+  border: none;
+  opacity: 0.65;
+  cursor: not-allowed;
+  padding: 0.5rem 1rem;
+}
+
+/* Spacing utility overrides */
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+  .card-title {
+    font-size: 1.1rem;
+  }
+  .card-text {
+    font-size: 0.95rem;
+  }
+}
+.btn{
+  margin-right:30px;
+}

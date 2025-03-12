@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<!-- Search Form -->
+<div class="container mt-3">
+  <div class="row mb-3">
+    <!-- Status Filter -->
+    <div class="col-md-6">
+      <div class="form-group mt-2">
+        <label for="status"><strong>Select Status (Optional):</strong></label>
+        <select id="status" [(ngModel)]="selectedStatus" class="form-control">
+          <option value="">-- All Statuses --</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Declined">Declined</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+    </div>
+    <!-- Date Filter -->
+    <div class="col-md-6">
+      <div class="form-group mt-2">
+        <label for="date"><strong>Select Date (Optional):</strong></label>
+        <input type="date" id="date" [(ngModel)]="selectedDate" class="form-control">
+      </div>
+    </div>
+  </div>
+  <!-- Search Button Row -->
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary w-30" (click)="searchAppointments()">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- Display Appointment Details -->
+<div *ngIf="appointments && appointments.length > 0" class="container mt-3">
+  <div *ngFor="let appointment of appointments" class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Appointment ID: {{ appointment.appId }}</h5>
+      <p class="card-text"><strong>Doctor Name:</strong> {{ appointment.doctor.name }}</p>
+      <p class="card-text"><strong>Patient Name:</strong> {{ appointment.patient.patientName }}</p>
+      <p class="card-text">
+        <strong>Date:</strong> {{ appointment.date | date: 'mediumDate' }}
+      </p>
+      <p class="card-text"><strong>Time:</strong> {{ appointment.time }}</p>
+      <p class="card-text"><strong>Status:</strong> {{ appointment.status }}</p>
+
+      <!-- Conditionally display Cancel or Completed button -->
+      <div class="mt-3">
+        <!-- If the appointment's date is today or in future, display Cancel button -->
+        <button *ngIf="isPresentOrFuture(appointment.date)" class="btn btn-danger mr-2"
+          (click)="deleteAppointment(appointment.appId)">
+          Cancel Appointment
+        </button>
+        <!-- Otherwise, display a disabled Completed button -->
+        <button *ngIf="!isPresentOrFuture(appointment.date)" class="btn btn-secondary" disabled>
+          Completed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No Appointments Found Message -->
+<div *ngIf="appointments && appointments.length === 0 && searched" class="container mt-3">
+  <p>
+    No appointments found for Patient ID "<strong>{{ patientId }}</strong>"
+    {{ selectedStatus ? 'with status "' + selectedStatus + '"' : '' }}
+    {{ selectedDate ? ' on date "' + selectedDate + '"' : '' }}.
+  </p>
+</div>
+
+<!-- Back to Home Button Centered -->
+<div class="container mt-3 text-center">
+  <button class="btn btn-primary" routerLink="/home">Back to Home</button>
+</div>
+
+<router-outlet></router-outlet>

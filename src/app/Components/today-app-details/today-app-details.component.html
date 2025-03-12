@@ -1,0 +1,39 @@
+<!-- today-appointments.component.html -->
+<app-navbar></app-navbar>
+<div class="container mt-3">
+    <h2>Today's Appointments</h2>
+  
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Appointments List -->
+    <div *ngIf="appointments && appointments.length > 0">
+      <div *ngFor="let appointment of appointments" class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title">Patient: {{ appointment.patient.patientName }}</h5>
+          <p class="card-text">
+            <strong>Appointment ID:</strong> {{ appointment.appId }}<br />
+            <strong>Date:</strong> {{ appointment.date | date: 'mediumDate' }}<br />
+            <strong>Time:</strong> {{ appointment.time }}<br />
+            <strong>Status:</strong> {{ appointment.status }}
+          </p>
+  
+          <!-- Add Prescription Button -->
+          <button
+            class="btn btn-primary mt-2"
+            (click)="navigateToAddPrescription(appointment.appId)"
+          >
+            Add Prescription
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No Appointments Message -->
+    <div *ngIf="appointments && appointments.length === 0">
+      <p>No appointments scheduled for today.</p>
+    </div>
+  </div>
+  

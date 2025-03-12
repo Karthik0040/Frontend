@@ -1,0 +1,72 @@
+.register-section {
+    height: 100vh; /* Cover full viewport height */
+    display: flex;
+    justify-content: flex-end; /* Push child elements (like .register-container) to the right */
+    align-items: center; /* Vertically center the child elements */
+    background-image: url('../../assets/register2.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Add some padding for aesthetics */
+}
+
+.register-container {
+    width: 100%;
+    max-width: 400px; /* Restrict the container width for a clean layout */
+    padding: 30px; /* Increased padding for better spacing inside */
+    
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */; /* Darker semi-transparent background for contrast */
+    color: white; /* White text for better visibility */
+    text-align: left; /* Center align text and inputs */
+    border-radius: 12px; /* More rounded corners for a sleek look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+    margin-right: 150px; /* Adjusted spacing from the right edge */
+   
+}
+
+input {
+    padding: 10px; /* Padding for a comfortable typing area */
+    font-size: 1rem; /* Ensure readable font size */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded edges for a friendly feel */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #333; /* Text color for contrast */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow inside for depth */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+}
+
+input:focus {
+    outline: none; /* Removes default blue outline */
+    border-color: #007bff; /* Changes border color to blue when focused */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.5); /* Adds glow effect */
+}
+
+input::placeholder {
+    color: #999; /* Placeholder text color */
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding-top:10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: large;
+    text-align: center;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+
+a{
+    color:#ffffff;
+    text-decoration: none;
+}
+
+.radioButton {
+    margin-right: 15px;
+    display: flex; 
+    align-items: center; 
+}

@@ -1,0 +1,55 @@
+<div class="container my-5" *ngIf="prescription">
+  <div class="card shadow-lg">
+    <!-- Card Header with Background Color -->
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">Prescription for Appointment ID: {{ appointmentId }}</h2>
+    </div>
+
+    <!-- Card Body with Prescription Details -->
+    <div class="card-body">
+      <div class="mb-3">
+        <p class="mb-1"><strong>Date:</strong></p>
+        <p>{{ prescription.date | date: 'mediumDate' }}</p>
+      </div>
+      <h3 class="mt-4">Medicines:</h3>
+
+      <!-- Responsive Table for Medicines -->
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Tablet Count</th>
+              <th>Morning</th>
+              <th>Afternoon</th>
+              <th>Night</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let med of prescription.medicine">
+              <td>{{ med.name }}</td>
+              <td>{{ med.tabletCount }}</td>
+              <td>{{ med.morning ? 'Yes' : 'No' }}</td>
+              <td>{{ med.afternoon ? 'Yes' : 'No' }}</td>
+              <td>{{ med.night ? 'Yes' : 'No' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Display Error Message -->
+<div *ngIf="errorMessage" class="container">
+  <div class="alert alert-danger text-center mt-4" role="alert">
+    {{ errorMessage }}
+  </div>
+</div>
+
+<!-- Back to Home Button -->
+<div class="container text-center my-4">
+  <button class="btn btn-success btn-lg" routerLink="/doctor_home">Back to Home</button>
+</div>
+
+<router-outlet></router-outlet>

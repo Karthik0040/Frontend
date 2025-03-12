@@ -1,0 +1,79 @@
+/* home.component.css */
+
+/*  Image Styling */
+.d-flex {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* background-image: url(/FrontEnd/project/public/img2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.d-flex img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.d-flex .overlay {
+  position: absolute;
+  bottom: 50%;
+  left: 40%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #100101;
+}
+
+.d-flex .overlay h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.d-flex .overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.d-flex .overlay .btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+/* Footer Styling */
+/* Assuming your footer has its own styles. */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .d-flex .overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .d-flex .overlay p {
+    font-size: 1rem;
+  }
+
+  .d-flex .overlay .btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .d-flex .overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .d-flex .overlay p {
+    font-size: 0.9rem;
+  }
+
+  .d-flex .overlay .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+

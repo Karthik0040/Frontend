@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="d-flex  position-relative">
+  <img src="img2.jpg" alt="Healthcare Facility" class="img-fluid w-100">
+  <div class="overlay position-absolute top-50 start-50 translate-middle text-center text-black">
+    <h2>Welcome to Our Healthcare Facility</h2>
+    <p>Providing the best medical care to our patients.</p>
+    <button class="btn btn-primary" (click)="redirectToAppointments()">Book Appointment</button>
+  </div>
+</div>
+
+<!-- Footer and Additional Router Outlet -->
+<app-footer></app-footer>
+<router-outlet>

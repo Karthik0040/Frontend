@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+  <div class="container-fluid px-0">
+    <!-- Left Block: Brand / Logo -->
+    <div class="d-flex align-items-center flex-grow-1">
+      <a class="navbar-brand" routerLink="/">
+        <img src="logo.png" alt="Hospital logo" style="height: 40px; margin-right: 15px;" class="me-2">
+        <span>Hospital Management System</span>
+      </a>
+    </div>
+
+    <!-- Hamburger Toggler -->
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [attr.aria-expanded]="!isCollapsed"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Right Block: Collapsible Navigation Links -->
+    <div class="collapse navbar-collapse justify-content-end" [ngClass]="{'show': !isCollapsed}">
+      <ul class="navbar-nav">
+        <!-- Not Logged In -->
+        <ng-container *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+        </ng-container>
+
+        <!-- Logged In Users -->
+        <ng-container *ngIf="isLoggedIn">
+          <!-- For Patients -->
+          <ng-container *ngIf="role === 'Patient'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/doctor">View Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/appointmentDetails">View Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/prescription">View Prescriptions</a>
+            </li>
+            <!-- Profile Icon for Patients -->
+            <!-- Profile Icon for Patients -->
+            <li class="nav-item" class="profile">
+              <a class="nav-link" (click)="openPatientProfile()">
+                <i class="fas fa-user-circle"></i> 
+              </a>
+            </li>
+
+          </ng-container>
+
+          <!-- For Doctors -->
+          <ng-container *ngIf="role === 'Doctor'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/doctor_home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/viewTodaysApp">Today's Appointments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/viewAllApp">All Appointments</a>
+            </li>
+          </ng-container>
+
+          <!-- Logout Button -->
+          <li class="nav-item">
+            <button class="btn btn-link nav-link" (click)="logout()">Logout</button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

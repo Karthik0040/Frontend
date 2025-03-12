@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+  <h2>Add Prescription for Appointment ID: {{ appointmentId }}</h2>
+
+  <!-- Message -->
+  <div *ngIf="message" class="alert alert-info">
+    {{ message }}
+  </div>
+
+  <!-- Medicine Form -->
+  <form (ngSubmit)="addMedicine()">
+    <div class="form-group">
+      <label for="name">Medicine Name</label>
+      <input type="text" id="name" [(ngModel)]="medicine.name" name="name" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="tabletCount">Tablet Count</label>
+      <input type="number" id="tabletCount" [(ngModel)]="medicine.tabletCount" name="tabletCount" class="form-control"
+        required />
+    </div>
+    <div class="form-group">
+      <label>Dose Timing</label><br />
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="morning" [(ngModel)]="medicine.morning" name="morning" />
+        <label class="form-check-label" for="morning">Morning</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="afternoon" [(ngModel)]="medicine.afternoon"
+          name="afternoon" />
+        <label class="form-check-label" for="afternoon">Afternoon</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="night" [(ngModel)]="medicine.night" name="night" />
+        <label class="form-check-label" for="night">Night</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Add Medicine</button>
+  </form>
+
+  <!-- List of Medicines -->
+  <div *ngIf="medicines && medicines.length > 0" class="mt-4">
+    <h3>Medicines Added:</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tablet Count</th>
+          <th>Morning</th>
+          <th>Afternoon</th>
+          <th>Night</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let med of medicines">
+          <td>{{ med.name }}</td>
+          <td>{{ med.tabletCount }}</td>
+          <td>{{ med.morning ? 'Yes' : 'No' }}</td>
+          <td>{{ med.afternoon ? 'Yes' : 'No' }}</td>
+          <td>{{ med.night ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Action Buttons -->
+  <button class="btn btn-primary mt-3" (click)="addPrescription()">
+    Save Prescription
+  </button>
+  <button class="btn btn-secondary mt-3" (click)="printPrescription()">
+    Print Prescription
+  </button>
+</div>

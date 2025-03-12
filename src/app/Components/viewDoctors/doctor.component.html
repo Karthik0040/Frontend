@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div *ngIf="showDoctors" class="doctor-cards d-flex flex-wrap justify-content-center">
+  <div class="card doctor-card m-3 text-center" *ngFor="let doctor of doctors" style="width: 18rem;">
+    <img
+      [src]="doctor.gender === 'Female' ? 'womendoctor.png' : 'maleDoctor.png'"
+      class="card-img-top doctor-image"
+      [alt]="doctor.name"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Dr. {{ doctor.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">ID: {{ doctor.doctorId }}</h6>
+      <p class="card-text text-start">
+        <i class="fas fa-envelope"></i> {{ doctor.emailId }}<br />
+        <i class="fas fa-user-md"></i> {{ doctor.specialization }}<br />
+        <i class="fas fa-phone"></i> {{ doctor.mobile_number }}
+      </p>
+      <!-- Book Appointment Button -->
+      <button class="btn btn-primary" (click)="bookAppointment(doctor)">
+        Book Appointment
+      </button>
+    </div>
+  </div>
+</div>

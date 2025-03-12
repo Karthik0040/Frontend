@@ -1,0 +1,76 @@
+<div class="container">
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    <strong>Error!</strong> {{ errorMessage }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <!-- Booking Form Card -->
+  <div class="card shadow-sm mt-5">
+    <div class="card-header bg-primary text-white">
+      <h3 class="mb-0">Book an Appointment</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="bookAppointment()" #appointmentForm="ngForm">
+
+        <!-- Date Field with Validation -->
+        <div class="mb-3">
+          <label for="date" class="form-label">Date:</label>
+          <!-- Set [min]="minDate" to restrict past dates along with a template reference -->
+          <input type="date" id="date" name="date" [(ngModel)]="appointment.date" [min]="minDate" class="form-control"
+            required #dateField="ngModel" />
+          <!-- Error messages for Date Field -->
+          <div *ngIf="dateField.invalid && (dateField.dirty || dateField.touched)" class="text-danger mt-1">
+            <div *ngIf="dateField.errors?.['required']">
+              Date is required.
+            </div>
+            <div *ngIf="dateField.errors?.['min']">
+              Can't book on a past date.
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Field -->
+        <div class="mb-3">
+          <label for="time" class="form-label">Time:</label>
+          <input type="time" id="time" name="time" [(ngModel)]="appointment.time" class="form-control" required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">Book Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Display Booked Appointment Details -->
+  <div *ngIf="bookedAppointmentDetails" class="card shadow-sm mt-5">
+    <div class="card-header bg-success text-white">
+      <h3 class="mb-0">Appointment Details</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Appointment ID: {{ bookedAppointmentDetails.appId }}</h5>
+      <p class="card-text">
+        <strong>Patient Name:</strong> {{ bookedAppointmentDetails.patient.patientName }}<br>
+        <!-- <strong>Patient ID:</strong> {{ bookedAppointmentDetails.patient.patientID }}<br> -->
+        <strong>Patient Age:</strong> {{ bookedAppointmentDetails.patient.patientAge }}<br>
+        <strong>Doctor Name:</strong> {{ bookedAppointmentDetails.doctor.name }}<br>
+        <!-- <strong>Doctor ID:</strong> {{ bookedAppointmentDetails.doctor.doctorId }}<br> -->
+        <strong>Date:</strong> {{ bookedAppointmentDetails.date }}<br>
+        <strong>Time:</strong> {{ bookedAppointmentDetails.time }}<br>
+        <strong>Status:</strong> {{ bookedAppointmentDetails.status }}
+      </p>
+    </div>
+  </div>
+  
+
+  <!-- Back to Home Button -->
+  <div class="text-center my-4">
+    <button class="btn btn-outline-primary" routerLink="/home">
+      Back to Home
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-3">
+  <div *ngIf="patientInfo; else loading">
+    <h2>Patient Profile</h2>
+    <div class="card">
+      <div class="card-body">
+        <p><strong>ID:</strong> {{ patientInfo.patientID }}</p>
+        <p><strong>Name:</strong> {{ patientInfo.patientName }}</p>
+        <p><strong>Email:</strong> {{ patientInfo.emailID }}</p>
+        <p><strong>Age:</strong> {{ patientInfo.patientAge }}</p>
+        <p><strong>Mobile Number:</strong> {{ patientInfo.mobile_number }}</p>
+        <p><strong>Gender:</strong> {{ patientInfo.gender }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <div class="text-center">
+      <p>Loading patient information...</p>
+    </div>
+  </ng-template>
+</div>

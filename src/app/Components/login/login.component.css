@@ -1,0 +1,84 @@
+/* Apply styles to the parent container or section */
+.login-section {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    background-image: url('../../assets/blur1.jpg'); /* Background image */
+    background-size: cover; /* Scale the image to cover the section */
+    background-position: center; /* Center the image in the section */
+    padding: 20px; /* Add padding to avoid edge overflow */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Restrict the container width for a clean layout */
+    padding: 30px; /* Increased padding for better spacing inside */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for contrast */
+    color: white; /* White text for better visibility */
+    text-align: center; /* Center align text and inputs */
+    border-radius: 12px; /* More rounded corners for a sleek look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px; /* Spacing between form elements */
+}
+
+/* Input Fields */
+input {
+    width: 100%; /* Full width to align with container */
+    padding: 12px; /* Slightly larger padding for a better typing experience */
+    font-size: 1rem; /* Standard font size */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 6px; /* Rounded corners for smoother appearance */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #333; /* Dark text for readability */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
+}
+
+input:focus {
+    outline: none; /* Remove default browser outline */
+    border-color: #007bff; /* Highlight border in blue */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a soft glow */
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px; /* Comfortable button size */
+    background-color: #007bff; /* Blue background for a professional look */
+    color: white; /* White text for contrast */
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Forgot Password Link Styling */
+.forgot-password,
+.forgot-password a {
+    color: #007bff; /* Blue text for emphasis */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Link Styling */
+a {
+    color: #007bff; /* Blue links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}

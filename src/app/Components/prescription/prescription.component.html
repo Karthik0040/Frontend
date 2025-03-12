@@ -1,0 +1,63 @@
+<section class="prescription">
+  <div class="container mt-3">
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <!-- No Prescription Found Message -->
+    <div *ngIf="noPrescriptionFound && !errorMessage" class="alert alert-warning">
+      No prescription found.
+    </div>
+
+    <!-- Prescription Details List wrapper -->
+    <div *ngIf="prescription && prescription.length > 0 && !errorMessage" class="prescription-cards-wrapper" style="display: flex; flex-direction: column; gap: 20px;">
+      <div class="card shadow-sm" *ngFor="let presc of prescription">
+        <div class="card-header bg-primary text-white">
+          <!-- Display Appointment ID in header -->
+          <h4 class="mb-0">Prescription Details (Appointment ID: {{ presc.aid }})</h4>
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Patient ID:</strong> {{ presc.patientid }}<br />
+            <strong>Doctor ID:</strong> {{ presc.doctorid }}<br />
+            <strong>Date:</strong> {{ presc.date | date: 'mediumDate' }}
+          </p>
+
+          <!-- Medicines Table -->
+          <h5 class="mt-4">Medicines</h5>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Tablet Count</th>
+                  <th>Morning</th>
+                  <th>Afternoon</th>
+                  <th>Night</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let med of presc.medicine">
+                  <td>{{ med.name }}</td>
+                  <td>{{ med.tabletCount }}</td>
+                  <td>{{ med.morning ? 'Yes' : 'No' }}</td>
+                  <td>{{ med.afternoon ? 'Yes' : 'No' }}</td>
+                  <td>{{ med.night ? 'Yes' : 'No' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="text-center my-4">
+      <button class="btn btn-outline-primary" routerLink="/home">
+        Back to Home
+      </button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</section>
