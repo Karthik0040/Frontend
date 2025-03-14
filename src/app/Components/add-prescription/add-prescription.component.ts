@@ -19,6 +19,7 @@ export class AddPrescriptionComponent implements OnInit {
   medicines: Medicine[] = [];
   message: string | null = null;
 
+
   constructor(
     private route: ActivatedRoute,
     private prescriptionService: PrescriptionService,
@@ -90,6 +91,8 @@ export class AddPrescriptionComponent implements OnInit {
       doctorid: null, // Set actual doctor ID
       medicine: this.medicines,
       date: new Date().toISOString().split('T')[0],
+      doctor_name:null,
+      patient_name:null
     };
 
     this.prescriptionService

@@ -19,10 +19,11 @@
         </div>
         <div class="card-body">
           <p>
-            <strong>Patient ID:</strong> {{ presc.patientid }}<br />
-            <strong>Doctor ID:</strong> {{ presc.doctorid }}<br />
+            <strong>Patient Name:</strong> {{ patient.patientName || 'Loading...' }}<br />
+            <strong>Doctor Name:</strong> {{ doctorNameMap[presc.doctorid] || 'Loading...' }}<br />
             <strong>Date:</strong> {{ presc.date | date: 'mediumDate' }}
           </p>
+          
 
           <!-- Medicines Table -->
           <h5 class="mt-4">Medicines</h5>
